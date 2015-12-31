@@ -1,7 +1,7 @@
 package br.com.trilha.java.cursoII;
 
 public class Conta {
-	private double saldo;
+	protected double saldo;
 
 	public double getSaldo() {
 		return saldo;
