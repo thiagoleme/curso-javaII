@@ -6,15 +6,19 @@ public abstract class Conta {
 	public double getSaldo() {
 		return saldo;
 	}
-	
-	public void deposita(double deposito){
-		this.saldo += deposito;
+
+	public void deposita(double deposito) {
+		if (deposito > 0) {
+			this.saldo += deposito;
+		} else {
+			throw new IllegalArgumentException("Valor Negativo.");
+		}
 	}
-	
-	public void saca(double saque){
+
+	public void saca(double saque) {
 		this.saldo -= saque;
 	}
-	
+
 	public abstract void atualiza(double taxa);
-	
+
 }

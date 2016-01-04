@@ -1,7 +1,21 @@
 package br.com.trilha.java.cursoII;
 
+import org.junit.Test;
+import static org.junit.Assert.*;
+
 public class TestaContas {
+
 	public static void main(String[] args) {
+		Conta cp = new ContaCorrente();
+		try {
+			cp.deposita(-100);
+		} catch (IllegalArgumentException e) {
+			System.out.println("Erro: " + e.getMessage());
+		}
+	}
+
+	// @Test
+	public void AtualizaContas() {
 		Conta c = new ContaCorrente();
 		Conta cc = new ContaCorrente();
 		Conta cp = new ContaPoupanca();
@@ -18,8 +32,12 @@ public class TestaContas {
 		System.out.println(cc.getSaldo());
 		System.out.println(cp.getSaldo());
 
-		System.out.printf("O saldo é: %.2f\n", c.getSaldo());
-		System.out.printf("O saldo é: %.2f\n", cc.getSaldo());
-		System.out.printf("O saldo é: %.2f\n", cp.getSaldo());
+		assertEquals(c.getSaldo(), 1020.0, 0.00);
+	}
+
+	// @Test(expected = IllegalArgumentException.class)
+	public void NaoDepositaValorNegativo() {
+		Conta cp = new ContaCorrente();
+		cp.deposita(-100);
 	}
 }
