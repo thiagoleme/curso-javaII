@@ -9,7 +9,7 @@ public class TestaContas {
 		Conta cp = new ContaCorrente();
 		try {
 			cp.deposita(-100);
-		} catch (IllegalArgumentException e) {
+		} catch (ValorInvalidoException e) {
 			System.out.println("Erro: " + e.getMessage());
 		}
 	}

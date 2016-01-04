@@ -11,7 +11,7 @@ public abstract class Conta {
 		if (deposito > 0) {
 			this.saldo += deposito;
 		} else {
-			throw new IllegalArgumentException("Valor Negativo.");
+			throw new ValorInvalidoException(deposito);
 		}
 	}
 
