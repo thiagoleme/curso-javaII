@@ -5,16 +5,7 @@ import static org.junit.Assert.*;
 
 public class TestaContas {
 
-	public static void main(String[] args) {
-		Conta cp = new ContaCorrente();
-		try {
-			cp.deposita(-100);
-		} catch (ValorInvalidoException e) {
-			System.out.println("Erro: " + e.getMessage());
-		}
-	}
-
-	// @Test
+	@Test
 	public void AtualizaContas() {
 		Conta c = new ContaCorrente();
 		Conta cc = new ContaCorrente();
@@ -35,7 +26,7 @@ public class TestaContas {
 		assertEquals(c.getSaldo(), 1020.0, 0.00);
 	}
 
-	// @Test(expected = IllegalArgumentException.class)
+	@Test(expected = ValorInvalidoException.class)
 	public void NaoDepositaValorNegativo() {
 		Conta cp = new ContaCorrente();
 		cp.deposita(-100);
